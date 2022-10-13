@@ -1,6 +1,15 @@
 const express = require('express')
 const app = express()
 
+function getReq(req,res,next){
+
+    console.log({'Method': req.method , 'IP': req.ip })
+    next()
+
+}
+
+app.use(getReq);
+
 app.get('/',(req,res)=>{
 
     res.send('aplicatia 1')
