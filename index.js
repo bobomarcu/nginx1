@@ -19,7 +19,7 @@ app.get('/',(req,res)=>{
 
 app.get('/api',(req,res)=>{
 
-    res.send({obj:'ok'})
+    res.send("aplicatia 1")
 
 })
 
