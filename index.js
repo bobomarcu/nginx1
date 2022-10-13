@@ -9,6 +9,7 @@ function getReq(req,res,next){
 }
 
 app.use(getReq);
+app.set('trust proxy', true)
 
 app.get('/',(req,res)=>{
 
