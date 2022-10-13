@@ -19,7 +19,7 @@ app.use(getReq);
 app.use(express.json())
 app.use(cors(
     {
-        origin: '192.168.7.150'
+        origin: '192.168.7.150:3000'
     }
 ))
 app.set('trust proxy', true)
