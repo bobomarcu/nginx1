@@ -3,12 +3,20 @@ const app = express()
 
 function getReq(req,res,next){
 
-    console.log({'Method': req.method ,'url': req.originalUrl, 'IP': req.headers['x-forwarded-for'] || req.socket.remoteAddress })
+    console.log(
+        {
+        'Method': req.method ,
+        'url': req.originalUrl, 
+        'IP': req.headers['x-forwarded-for'] || req.socket.remoteAddress
+        }
+    )
     next()
 
 }
 
 app.use(getReq);
+app.use(express.json())
+app.use(cors())
 app.set('trust proxy', true)
 
 app.get('/',(req,res)=>{
