@@ -35,13 +35,20 @@ app.get('/login/:username-:password',(req,res)=>{
     const username = req.params.username
     const password = req.params.password
 
-    db.query('SELECT * FROM user_data', (err, result)=>{
 
+    db.query(`SELECT * FROM user_data WHERE username = ${username} `, (err, result)=>{
 
-        console.log(result[0])
+        if(result.length > 0 ){
 
-    })
+            if (result.password == password){
 
+                    res.send({id: result.id , username: result.username})
+
+            }
+
+        }
+
+})
 })
 
 app.get('/register/:username-:password',(req,res)=>{
