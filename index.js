@@ -1,7 +1,10 @@
 const express = require('express')
 const cors = require('cors')
 const db = require('./db')
+const bcrypt = require('bcrypt')
 const app = express()
+
+const saltRounds = 10;
 
 function getReq(req,res,next){
 
@@ -26,6 +29,32 @@ app.set('trust proxy', true)
 app.get('/',(req,res)=>{
 
     res.send('aplicatia 1')
+
+})
+
+app.get('/login/:username-:password',(req,res)=>{
+
+
+
+
+})
+
+app.get('/register/:username-:password',(req,res)=>{
+
+    const username = req.params.username
+    const password = req.params.password
+
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+
+        db.query(`INSERT INTO (id,username,password) VALUES (0,${username},${hash})`,(err,result)=>{
+
+            if(err) throw err
+            res.send('ok')
+
+        })
+
+    });
+
 
 })
 
