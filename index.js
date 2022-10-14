@@ -44,8 +44,14 @@ app.get('/api/:procesor-:os-:ip-:numeAdmin',(req,res)=>{
         numeAdmin: numeAdmin
 
     }
-    console.log(result[0])
-    res.send(pc + result[0])
+    db.query('SELECT * FROM user_data', (err,result)=>{
+
+        if (err) throw err
+        console.log(result[0])
+        res.send(pc + result[0])
+
+    })
+
 
 } )
 
