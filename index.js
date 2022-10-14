@@ -47,8 +47,15 @@ app.get('/login/:username-:password',(req,res)=>{
                     res.send({id: result.id , username: result.username})
 
             }
+            else{
+                res.send('bad pass')
+            }
 
         }
+        else{
+            res.send('bad user')
+        }
+
 
     })
 })
