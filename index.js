@@ -44,7 +44,7 @@ app.get('/register/:username-:password',(req,res)=>{
 
 
 
-        db.query(`INSERT INTO (id,username,password) VALUES (0,'${username}','${password}')`,(err,result)=>{
+        db.query(`INSERT INTO user_data (id,username,password) VALUES (0,'${username}','${password}')`,(err,result)=>{
 
             if(err) throw err
             res.send('ok')
