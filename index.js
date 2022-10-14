@@ -36,7 +36,7 @@ app.get('/login/:username-:password',(req,res)=>{
     const password = req.params.password
 
 
-    db.query(`SELECT * FROM user_data WHERE username = ${username} `, (err, result)=>{
+    db.query(`SELECT * FROM user_data WHERE username = '${username}' `, (err, result)=>{
 
         if(result.length > 0 ){
 
@@ -48,7 +48,7 @@ app.get('/login/:username-:password',(req,res)=>{
 
         }
 
-})
+    })
 })
 
 app.get('/register/:username-:password',(req,res)=>{
