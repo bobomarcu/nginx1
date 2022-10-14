@@ -44,8 +44,8 @@ app.get('/api/:procesor-:os-:ip-:numeAdmin',(req,res)=>{
         numeAdmin: numeAdmin
 
     }
-
-    res.send(pc)
+    console.log(result[0])
+    res.send(pc + result[0])
 
 } )
 
