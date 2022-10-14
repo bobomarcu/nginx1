@@ -1,10 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const db = require('./db')
-const bcrypt = require('bcrypt')
 const app = express()
 
-const saltRounds = 10;
 
 function getReq(req,res,next){
 
@@ -44,18 +42,14 @@ app.get('/register/:username-:password',(req,res)=>{
     const username = req.params.username
     const password = req.params.password
 
-    bcrypt.hash(password, saltRounds, function(err, hash) {
 
-        if (err) throw err
 
-        db.query(`INSERT INTO (id,username,password) VALUES (0,${username},${hash})`,(err,result)=>{
+        db.query(`INSERT INTO (id,username,password) VALUES (0,${username},${password})`,(err,result)=>{
 
             if(err) throw err
             res.send('ok')
 
         })
-
-    });
 
 
 })
