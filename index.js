@@ -48,12 +48,12 @@ app.get('/login/:username-:password',(req,res)=>{
 
             }
             else{
-                res.send('bad pass')
+                res.status(208).send('bad pass')
             }
 
         }
         else{
-            res.send('bad user')
+            res.status(208).send('bad user')
         }
 
 
