@@ -46,6 +46,8 @@ app.get('/register/:username-:password',(req,res)=>{
 
     bcrypt.hash(password, saltRounds, function(err, hash) {
 
+        if (err) throw err
+
         db.query(`INSERT INTO (id,username,password) VALUES (0,${username},${hash})`,(err,result)=>{
 
             if(err) throw err
