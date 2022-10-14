@@ -38,6 +38,8 @@ app.get('/login/:username-:password',(req,res)=>{
 
     db.query(`SELECT * FROM user_data WHERE username = '${username}' `, (err, result)=>{
 
+        if(err) throw err
+
         if(result.length > 0 ){
 
             if (result.password == password){
