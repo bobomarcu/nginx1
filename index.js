@@ -105,17 +105,16 @@ app.post('/pc-data',(req,res)=>{
 
     db.query(`INSERT INTO pcData (id,user,mem,cpu,host,gpu) VALUES (0, '${user}', '${mem}' ,'${cpu}' ,'${host}','${gpu}')`,(err , result)=>{
 
-        console.log(result)
-        // if (err) throw err;
-        // if (result.length > 0){
+        if (err) throw err;
+        if (result){
 
-        //     res.status(200).send({user:user,mem:mem,cpu:cpu,host:host,gpu:gpu});
+            res.status(200).send({user:user,mem:mem,cpu:cpu,host:host,gpu:gpu});
 
-        // }else{
+        }else{
 
-        //     res.status(400).send('Something failed')
+            res.status(400).send('Something failed')
 
-        // }
+        }
 
     })
 
