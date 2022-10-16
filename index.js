@@ -135,6 +135,8 @@ app.post('/pc-data',(req,res)=>{
     const gpu = req.body.gpu;
     const os = req.body.os;
     const data = req.body.data
+
+    console.log(data)
     // var pc = {
 
     //     procesor: procesor,
