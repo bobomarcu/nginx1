@@ -147,7 +147,7 @@ app.post('/pc-data',(req,res)=>{
 
     // }
 
-    db.query(`INSERT INTO pcData (id,user,mem,cpu,host,gpu,os,data) VALUES (0, '${user}', '${mem}' ,'${cpu}' ,'${host}','${gpu}','${os}','${data})`,(err , result)=>{
+    db.query(`INSERT INTO pcData (id,user,mem,cpu,host,gpu,os,data) VALUES (0, '${user}', '${mem}' ,'${cpu}' ,'${host}','${gpu}','${os}','${data}')`,(err , result)=>{
 
         if (err) throw err;
 
