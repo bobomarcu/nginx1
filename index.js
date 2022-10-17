@@ -122,6 +122,15 @@ app.get('/get-pc-data',(req,res)=>{
 
 })
 
+app.post('/server-status' , (req,res)=>{
+
+    const host = req.body.host
+    const port = req.body.port
+    const status = req.body.status
+
+    res.send(host + " " + port + " " + status)
+})
+
 app.post('/pc-data',(req,res)=>{
 
     // const procesor = req.params.procesor
