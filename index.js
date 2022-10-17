@@ -156,6 +156,32 @@ app.post('/server-status' , (req,res)=>{
   
 })
 
+app.get('/get-server-status',(req,res)=>{
+
+    db.query('select * from server',(err,result)=>{
+
+        if(err) throw err
+        var arr = []
+        for ( var i = 0 ; i < result.length ; i++){
+
+            var object = {
+
+                id:result[i].id,
+                host:result[i].host,
+                port:result[i].port,
+                status:result[i].status
+
+            }
+
+            arr.push(object)
+
+        }
+        res.send(arr)
+    })
+
+
+})
+
 app.post('/pc-data',(req,res)=>{
 
     // const procesor = req.params.procesor
