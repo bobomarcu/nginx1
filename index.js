@@ -153,12 +153,6 @@ app.post('/server-status' , (req,res)=>{
     })
 
 
-    db.query(`INSERT INTO server (id , host , port ,status) VALUES (0 , '${host}' , '${port}' , '${status}')`,(err,result)=>{
-
-        if (err) throw err
-        res.send('Complete :D\n')
-    })
-
   
 })
 
